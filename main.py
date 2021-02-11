@@ -17,7 +17,7 @@ csv_columns = ['currency', 'code', 'bid', 'ask']
 csv_file = "data.csv"
 
 with open(csv_file, 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+        writer = csv.DictWriter(csvfile, fieldnames=csv_columns, delimiter=";")
         writer.writeheader()
         for data in convert:
             writer.writerow(data)
