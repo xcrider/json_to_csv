@@ -5,21 +5,19 @@ import csv
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
 
-print(type(data))
-json_data = data[0]
-print(type(json_data))
-print(json_data)
+json_data = data[0] #convert to dict
 
-print("\n -------------------------- \n")
-
-convert = json_data['rates']
+convert = json_data['rates'] #get rates
 
 print(f"Convert type: {type(convert)}")
 print(f"convert {convert}")
 
-columns_names = ['currency', 'code', 'bid', 'ask']
+csv_columns = ['currency', 'code', 'bid', 'ask']
 
-with open('data.csv', 'w') as f:
-    write = csv.writer(f)
-    write.writerow(columns_names)
-    write.writerows(convert)
+csv_file = "data.csv"
+
+with open(csv_file, 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+        writer.writeheader()
+        for data in convert:
+            writer.writerow(data)
