@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Currency exchange caluclator</title>
+    </head>
+    <body>
+        <h1>NBP Currency exchange calculator</h1>
+        
+        <form>
+            <label for="value">Currency</label>
+            <select>
+                {% for code in currency_codes %}
+                    <option value=”{{code}}”>{{code}}</option>
+                {% endfor %}
+            </select>
+            <label for="value">Value</label>
+            <input type="text" id="value" name="value">
+            <input type="submit" value="calculate">
+        </form>
+        
+
+    </body>
+</htmls>
