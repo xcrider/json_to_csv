@@ -18,6 +18,9 @@
             <input type="submit" value="calculate">
         </form>
         
-        <p>This is the result in {{amount}} PLN</p>
+        {% if total_pln %}
+            <p>Exchange rate is equal to {{exchange_rate}} </p>
+            <p>{{value}} {{currency}} is equeal to <strong>{{total_pln}} PLN </strong></p>
+        {% endif %}
     </body>
 </htmls>
