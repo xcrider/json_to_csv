@@ -5,18 +5,19 @@
     <body>
         <h1>NBP Currency exchange calculator</h1>
         
-        <form>
-            <label for="value">Currency</label>
-            <select>
+        <form method="POST" action="">
+            <label for="value">Currency</label><br>
+
                 {% for code in currency_codes %}
-                    <option value=”{{code}}”>{{code}}</option>
+                <input type="radio" id="{{code}}" name="currency" value = {{code}} required>
+                <label for="{{code}}">{{code}}</label><br>
                 {% endfor %}
-            </select>
+            
             <label for="value">Value</label>
             <input type="text" id="value" name="value">
             <input type="submit" value="calculate">
         </form>
         
-
+        <p>This is the result in {{amount}} PLN</p>
     </body>
 </htmls>
