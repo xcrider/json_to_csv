@@ -5,8 +5,6 @@ import csv
 app = Flask(__name__)
 
 
-
-
 def update_exchange():
     response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
     data = response.json()
@@ -28,6 +26,8 @@ def update_exchange():
         for data in convert:
             writer.writerow(data)
 
+
+update_exchange()
 
 # open csv file
 csv_file = "data.csv"
